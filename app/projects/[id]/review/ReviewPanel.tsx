@@ -320,12 +320,7 @@ export default function ReviewPanel({ projectId }: ReviewPanelProps) {
   const getPrixTotalEuro = useCallback(
     (row: Row) => {
       const raw =
-        row?.["prix_total(euro)"] ??
-        row?.["prix_total"] ??
-        row?.["prix total"] ??
-        row?.["Prix total"] ??
-        row?.["prix_total_euro"] ??
-        row?.["prix_total_euros"];
+        row?.["prix_total(euro)"]
       return parseMaybeNumber(raw);
     },
     [parseMaybeNumber]
@@ -334,12 +329,7 @@ export default function ReviewPanel({ projectId }: ReviewPanelProps) {
   const getEmissionTotale = useCallback(
     (row: Row) => {
       const raw =
-        row?.["émission_totale"] ??
-        row?.["emission_totale"] ??
-        row?.["Emission totale"] ??
-        row?.["Émission totale"] ??
-        row?.["emissions_totales"] ??
-        row?.["émissions_totales"];
+        row?.["émission_totale"]
       return parseMaybeNumber(raw);
     },
     [parseMaybeNumber]
@@ -729,7 +719,7 @@ export default function ReviewPanel({ projectId }: ReviewPanelProps) {
                           label: "Prix (euros)",
                           value: retryDraft.row?.["prix_total(euro)"]?.toLocaleString("fr-FR", {
                             minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
+                            maximumFractionDigits: 2
                           }),
                         }
                         ,
@@ -787,7 +777,7 @@ export default function ReviewPanel({ projectId }: ReviewPanelProps) {
                 </select>
 
                 <label className="mt-4 block text-xs font-normal text-slate-600">
-                  Infos pour affiner le calcul d'impact
+                  Informations pour affiner le calcul d'impact
                 </label>
                 <textarea
                   value={retryHint}
